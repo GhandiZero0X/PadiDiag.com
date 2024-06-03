@@ -1,17 +1,20 @@
-from flask import Flask, render_template, request
-from expert_system import diagnose_symptoms
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
+# Rute untuk halaman utama
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/result', methods=['POST'])
-def result():
-    symptoms = request.form.getlist('symptoms')
-    diagnosis = diagnose_symptoms(symptoms)
-    return render_template('result.html', diagnosis=diagnosis)
+# Rute untuk halaman form diagnosa
+@app.route('/form_diagnosa')
+def form_diagnosa():
+    return render_template('form.html')
+
+@app.route('/hasil_diagnosa')
+def hasil_diagnosa():
+    return render_template('result.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
