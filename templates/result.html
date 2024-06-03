@@ -79,39 +79,41 @@
     </div>
     <!-- Page Header End -->
 
-
-    <!-- Contact Start -->
+    <!-- result.html -->
     <div class="container py-5 ">
         <h2 class="text-center mb-4">Hasil Diagnosa Hama dan Penyakit pada Padi</h2>
         <div class="result-container">
             <div class="row">
                 <div class="col-md-6">
                     <h4>Informasi Petani</h4>
-                    <p><strong>Nama:</strong> [Nama]</p>
-                    <p><strong>Lokasi (Kabupaten):</strong> [Kabupaten]</p>
-                    <p><strong>Lahan Pertanian (hektar):</strong> [Hektar]</p>
+                    <p><strong>Nama:</strong> {{ nama }}</p>
+                    <p><strong>Lokasi (Kabupaten):</strong> {{ kabupaten }}</p>
+                    <p><strong>Lahan Pertanian (hektar):</strong> {{ hektar }}</p>
                 </div>
                 <div class="col-md-6">
                     <h4>Kondisi Pertanian</h4>
-                    <p><strong>Bagian Tanaman yang Terkena:</strong> [Bagian_Tanaman]</p>
-                    <p><strong>Kondisi Iklim atau Lingkungan:</strong> [Kondisi_Iklim]</p>
-                    <p><strong>Intensitas Serangan:</strong> [Intensitas_Serangan]</p>
-                    <p><strong>Adakah hama yang terlihat?:</strong> [Hama_Terlihat]</p>
-                    <p><strong>Adakah tanda-tanda penyakit pada tanaman?:</strong> [Tanda_Penyakit]</p>
+                    <p><strong>Bagian Tanaman yang Terkena :</strong> {{ bagian_tanaman }}</p>
+                    <p><strong>Kondisi Iklim atau Lingkungan :</strong> {{ kondisi_iklim }}</p>
+                    <p><strong>Intensitas Serangan :</strong> {{ intensitas_serangan }}</p>
+                    <p><strong>Adakah hama yang terlihat? :</strong> {{ hama_terlihat }}</p>
+                    <p><strong>Adakah tanda-tanda penyakit pada tanaman? :</strong> {{ tanda_penyakit }}</p>
                 </div>
             </div>
             <div class="row mt-4">
                 <div class="col-md-6">
-                    <h4>Gejala yang Ditemukan</h4>
+                    <h4>Gejala yang Ditemukan : </h4>
                     <ul>
-                        [List_Gejala]
+                        {% for gejala in gejala %}
+                        <li>{{ gejala }}</li>
+                        {% endfor %}
                     </ul>
                 </div>
                 <div class="col-md-6">
-                    <h4>Hasil Diagnosa</h4>
+                    <h4>Hasil Diagnosa : </h4>
                     <ul>
-                        [Hasil_Diagnosa]
-                        Terindikasi Tanaman Padi sedang terkena (penyakit/hama)
+                        {% for diagnosis in results %}
+                        <li>Terindikasi Tanaman Padi sedang terkena {{ diagnosis }}</li>
+                        {% endfor %}
                     </ul>
                 </div>
             </div>
