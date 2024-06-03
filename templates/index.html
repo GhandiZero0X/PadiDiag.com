@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sistem Pakar Diagnosis</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Diagnosa Demam Berdarah dan Tipes</h1>
+        <form action="{{ url_for('result') }}" method="POST">
+            <label><input type="checkbox" name="symptoms" value="demam tinggi"> Demam Tinggi</label><br>
+            <label><input type="checkbox" name="symptoms" value="sakit kepala parah"> Sakit Kepala Parah</label><br>
+            <label><input type="checkbox" name="symptoms" value="nyeri di belakang mata"> Nyeri di Belakang Mata</label><br>
+            <label><input type="checkbox" name="symptoms" value="nyeri sendi dan otot"> Nyeri Sendi dan Otot</label><br>
+            <label><input type="checkbox" name="symptoms" value="mual dan muntah"> Mual dan Muntah</label><br>
+            <label><input type="checkbox" name="symptoms" value="ruam kulit"> Ruam Kulit</label><br>
+            <label><input type="checkbox" name="symptoms" value="pembengkakan kelenjar"> Pembengkakan Kelenjar</label><br>
+            <label><input type="checkbox" name="symptoms" value="demam yang meningkat bertahap"> Demam yang Meningkat Bertahap</label><br>
+            <label><input type="checkbox" name="symptoms" value="sakit kepala"> Sakit Kepala</label><br>
+            <label><input type="checkbox" name="symptoms" value="kelelahan dan kelemahan"> Kelelahan dan Kelemahan</label><br>
+            <label><input type="checkbox" name="symptoms" value="nyeri otot"> Nyeri Otot</label><br>
+            <label><input type="checkbox" name="symptoms" value="berkeringat"> Berkeringat</label><br>
+            <label><input type="checkbox" name="symptoms" value="batuk kering"> Batuk Kering</label><br>
+            <label><input type="checkbox" name="symptoms" value="nafsu makan menurun"> Nafsu Makan Menurun</label><br>
+            <label><input type="checkbox" name="symptoms" value="penurunan berat badan"> Penurunan Berat Badan</label><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
