@@ -57,11 +57,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto">
-                    <a href="index.html" class="nav-item nav-link active">Home</a>
-                    <a href="index.html" class="nav-item nav-link about">About</a>
-                    <a href="index.html" class="nav-item nav-link">Products</a>
-                    <a href="index.html" class="nav-item nav-link">Store</a>
-                    <a href="form.html" class="nav-item nav-link">Contact</a>
+                    <a href="index.html" class="nav-item nav-link">Home</a>
+                    <a href="index.html" class="nav-item nav-link">About</a>
+                    <a href="index.html" class="nav-item nav-link">Mencegah</a>
+                    <a href="index.html" class="nav-item nav-link">Mengatasi</a>
+                    <a href="index.html" class="nav-item nav-link">Dapat Disembuhkan</a>
+                    <a href="form.html" class="nav-item nav-link active">Form Diagnosa</a>
                 </div>
             </div>
         </nav>
@@ -112,34 +113,136 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <div class="form-floating text-dark">
-                                    <select class="form-control bg-white">
-                                        <option value="" disabled selected hidden></option>
-                                        <option value="">Bulir padi mengering dan berubah warna menjadi putih</option>
-                                        <option value="">Produksi biji padi berkurang</option>
-                                        <option value="">Bulir padi menjadi keriput</option>
-                                        <option value="">Tanaman padi yang terserang menjadi kerdil</option>
-                                        <option value="">Terdapat bau menyengat pada tanaman padi yang terserang</option>
-                                        <option value="">Terdapat tanda bekas hisapan pada bulir padi</option>
-                                        <option value="">Penurunan hasil panen akibat biji padi yang rusak</option>
-                                        <option value="">Daun padi yang terserang menunjukkan perubahan warna</option>
-                                        <option value="">Biji padi menjadi keriput dan tidak berkembang</option>
-                                        <option value="">Terdapat bercak hitam pada biji padi yang terserang</option>
-                                        <option value="">Bulir padi yang berkembang menjadi kering dan hampa</option>
-                                        <option value="">Penurunan fotosintesis akibat kerusakan daun yang parah</option>
-                                        <option value="">Kehadiran ulat pada tanaman padi terutama di malam hari</option>
-                                        <option value="">Tanaman padi yang terserang terlihat meranggas</option>
-                                        <option value="">Daun padi menjadi compang-camping dan terkoyak</option>
-                                        <option value="">Daun padi mengalami kerusakan berat dengan adanya lubang besar</option>
-                                        <option value="">Daun dan batang tanaman padi terlihat rusak dan terpotong</option>
-                                        <option value="">Lubang dan sarang tikus terlihat di area sawah</option>
-                                        <option value="">Biji padi dimakan sehingga hasil panen berkurang</option>
-                                        <option value="">Terdapat jejak gigitan pada batang padi</option>
-                                        <option value="">Batang padi patah dan terpotong</option>
-                                    </select>
-                                    <label for="hektar">Pilih Gejalanya :</label>
+                                <div class="form-group text-dark">
+                                    <label for="gejala">Pilih Gejalanya:</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="gejala1" value="Bulir padi mengering dan berubah warna menjadi putih">
+                                        <label class="form-check-label" for="gejala1">
+                                            Bulir padi mengering dan berubah warna menjadi putih
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="gejala2" value="Produksi biji padi berkurang">
+                                        <label class="form-check-label" for="gejala2">
+                                            Produksi biji padi berkurang
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="gejala3" value="Bulir padi menjadi keriput">
+                                        <label class="form-check-label" for="gejala3">
+                                            Bulir padi menjadi keriput
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="gejala4" value="Tanaman padi yang terserang menjadi kerdil">
+                                        <label class="form-check-label" for="gejala4">
+                                            Tanaman padi yang terserang menjadi kerdil
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="gejala5" value="Terdapat bau menyengat pada tanaman padi yang terserang">
+                                        <label class="form-check-label" for="gejala5">
+                                            Terdapat bau menyengat pada tanaman padi yang terserang
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="gejala6" value="Terdapat tanda bekas hisapan pada bulir padi">
+                                        <label class="form-check-label" for="gejala6">
+                                            Terdapat tanda bekas hisapan pada bulir padi
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="gejala7" value="Penurunan hasil panen akibat biji padi yang rusak">
+                                        <label class="form-check-label" for="gejala7">
+                                            Penurunan hasil panen akibat biji padi yang rusak
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="gejala8" value="Daun padi yang terserang menunjukkan perubahan warna">
+                                        <label class="form-check-label" for="gejala8">
+                                            Daun padi yang terserang menunjukkan perubahan warna
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="gejala9" value="Biji padi menjadi keriput dan tidak berkembang">
+                                        <label class="form-check-label" for="gejala9">
+                                            Biji padi menjadi keriput dan tidak berkembang
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="gejala10" value="Terdapat bercak hitam pada biji padi yang terserang">
+                                        <label class="form-check-label" for="gejala10">
+                                            Terdapat bercak hitam pada biji padi yang terserang
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="gejala11" value="Bulir padi yang berkembang menjadi kering dan hampa">
+                                        <label class="form-check-label" for="gejala11">
+                                            Bulir padi yang berkembang menjadi kering dan hampa
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="gejala12" value="Penurunan fotosintesis akibat kerusakan daun yang parah">
+                                        <label class="form-check-label" for="gejala12">
+                                            Penurunan fotosintesis akibat kerusakan daun yang parah
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="gejala13" value="Kehadiran ulat pada tanaman padi terutama di malam hari">
+                                        <label class="form-check-label" for="gejala13">
+                                            Kehadiran ulat pada tanaman padi terutama di malam hari
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="gejala14" value="Tanaman padi yang terserang terlihat meranggas">
+                                        <label class="form-check-label" for="gejala14">
+                                            Tanaman padi yang terserang terlihat meranggas
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="gejala15" value="Daun padi menjadi compang-camping dan terkoyak">
+                                        <label class="form-check-label" for="gejala15">
+                                            Daun padi menjadi compang-camping dan terkoyak
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="gejala16" value="Daun padi mengalami kerusakan berat dengan adanya lubang besar">
+                                        <label class="form-check-label" for="gejala16">
+                                            Daun padi mengalami kerusakan berat dengan adanya lubang besar
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="gejala17" value="Daun dan batang tanaman padi terlihat rusak dan terpotong">
+                                        <label class="form-check-label" for="gejala17">
+                                            Daun dan batang tanaman padi terlihat rusak dan terpotong
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="gejala18" value="Lubang dan sarang tikus terlihat di area sawah">
+                                        <label class="form-check-label" for="gejala18">
+                                            Lubang dan sarang tikus terlihat di area sawah
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="gejala19" value="Biji padi dimakan sehingga hasil panen berkurang">
+                                        <label class="form-check-label" for="gejala19">
+                                            Biji padi dimakan sehingga hasil panen berkurang
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="gejala20" value="Terdapat jejak gigitan pada batang padi">
+                                        <label class="form-check-label" for="gejala20">
+                                            Terdapat jejak gigitan pada batang padi
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="gejala21" value="Batang padi patah dan terpotong">
+                                        <label class="form-check-label" for="gejala21">
+                                            Batang padi patah dan terpotong
+                                        </label>
+                                    </div>
                                 </div>
-                            </div>       
+                            </div>                                 
                             <div class="col-md-6">
                                 <div class="form-floating text-dark">
                                     <select class="form-control bg-white">
@@ -181,13 +284,7 @@
                                     <select class="form-control bg-white">
                                         <option value="" disabled selected hidden></option>
                                         <option value="">Tidak ada</option>
-                                        <option value="">Hama Walang Sangit</option>
-                                        <option value="">Hama Ganjur</option>
-                                        <option value="">Hama Wereng Hijau</option>
-                                        <option value="">Hama Tikus Sawah</option>
-                                        <option value="">Hama Ulat Grayak</option>
-                                        <option value="">Hama Wereng Batang Padi</option>
-                                        <option value="">Hama Wereng Cokelat</option>
+                                        <option value="">Ada</option>
                                     </select>
                                     <label for="hektar">Adakah hama yang terlihat?</label>
                                 </div>
@@ -197,18 +294,13 @@
                                     <select class="form-control bg-white">
                                         <option value="" disabled selected hidden></option>
                                         <option value="">Tidak ada</option>
-                                        <option value="">Busuk Akar</option>
-                                        <option value="">Penyakit Kresek</option>
-                                        <option value="">Karat Daun</option>
-                                        <option value="">Penyakit Blas</option>
-                                        <option value="">Tungro</option>
-                                        <option value="">Hawar Daun</option>
+                                        <option value="">Ada</option>
                                     </select>
                                     <label for="hektar">Adakah tanda-tanda penyakit pada tanaman?</label>
                                 </div>
                             </div>  
-                            <div class="col-12">
-                                <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Send Message</button>
+                            <div class="col-12 text-center">
+                                <button class="btn-primary rounded-pill py-3 px-5" type="submit">Send Message</button>
                             </div>
                         </div>
                     </form>
@@ -239,11 +331,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; <a class="fw-medium" href="#">Your Site Name</a>, All Right Reserved.
+                    &copy; <a class="fw-medium" href="#">Padidiag</a>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                    Designed By <a class="fw-medium" href="https://htmlcodex.com">HTML Codex</a> Distributed By <a class="fw-medium" href="https://themewagon.com">ThemeWagon</a>
+                    Designed By <a class="fw-medium" href="#">Kelompok 2</a>
                 </div>
             </div>
         </div>
