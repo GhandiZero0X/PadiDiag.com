@@ -1,4 +1,5 @@
 import logging
+from operator import itemgetter
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -61,11 +62,77 @@ def forward_chaining(selected_symptoms):
                     "Tanaman padi yang terserang memiliki anakan yang lebih sedikit"],
     }
     
-    diagnosis_results = set()
+    # Define the weights for each symptom
+    symptom_weights = {
+        "Bulir padi mengering dan berubah warna menjadi putih": 5,
+        "Produksi biji padi berkurang": 4,
+        "Bulir padi menjadi keriput": 3,
+        "Tanaman padi yang terserang menjadi kerdil": 2,
+        "Terdapat bau menyengat pada tanaman padi yang terserang": 1,
+        "Terdapat tanda bekas hisapan pada bulir padi": 1,
+        "Daun padi mengalami kerusakan berat dengan adanya lubang-lubang besar": 5,
+        "Daun padi menjadi compang-camping dan terkoyak": 4,
+        "Tanaman padi yang terserang terlihat meranggas": 3,
+        "Kehadira,n ulat pada tanaman padi terutama di malam hari": 2,
+        "Penurunan fotosintesis akibat kerusakan daun yang parah": 1,
+        "Tanaman layu meski kondisi tanah tidak kekurangan air": 5,
+        "Akar tanaman berubah warna menjadi coklat hingga hitam": 4,
+        "Tanaman mati secara tiba-tiba tanpa gejala awal yang jelas": 3,
+        "Akar terlihat busuk dan rapuh saat dicabut": 2,
+        "Pertumbuhan tanaman terhambat dan tidak normal": 1,
+        "Bercak kecil berwarna oranye muncul pada daun": 5,
+        "Bercak berkembang menjadi pustula berkarat": 4,
+        "Daun padi mengering dan mati dari ujung": 3,
+        "Tanaman padi menjadi kerdil dan pertumbuhannya terhambat": 2,
+        "Produktivitas tanaman padi menurun akibat daun yang rusak": 1,
+        "Muncul garis-garis coklat panjang pada daun padi.": 5,
+        "Daun padi mengering dan terlihat seperti terbakar.": 4,
+        "Lesi nekrotik berkembang pada daun.": 3,
+        "Daun padi menguning dan mati dari ujung daun.": 2,
+        "Tanaman padi yang terserang menunjukkan pertumbuhan terhambat.": 1,
+        "Lesi menyebar dan menyebabkan daun mengering.": 5,
+        "Batang padi patah dan terpotong": 5,
+        "Terdapat jejak gigitan pada batang padi": 4,
+        "Biji padi dimakan sehingga hasil panen berkurang": 3,
+        "Lubang dan sarang tikus terlihat di area sawah": 2,
+        "Terdapat bercak hitam pada biji padi yang terserang.": 1,
+        "Daun padi yang terserang menunjukkan perubahan warna.": 5,
+        "Penurunan hasil panen akibat biji padi yang rusak.": 4,
+        "Bulir padi yang berkembang menjadi kering dan hampa": 3,
+        "Terdapat tanda bekas hisapan pada bulir padi": 2,
+        "Daun padi yang terserang terlihat meranggas": 1,
+        "Kehadira,n ulat pada tanaman padi terutama di malam hari": 5,
+        "Penurunan fotosintesis akibat kerusakan daun yang parah": 4,
+        "Tanaman layu meski kondisi tanah tidak kekurangan air": 3,
+        "Akar tanaman berubah warna menjadi coklat hingga hitam": 2,
+        "Tanaman mati secara tiba-tiba tanpa gejala awal yang jelas": 1,
+        "Akar terlihat busuk dan rapuh saat dicabut": 5,
+        "Pertumbuhan tanaman terhambat dan tidak normal": 2,
+        "Bercak kecil berwarna oranye muncul pada daun": 5,
+        "Bercak berkembang menjadi pustula berkarat": 4,
+        "Daun padi mengering dan mati dari ujung": 3,
+    }
+
+    diagnosis_results = {}
     for disease, symptoms in diseases.items():
         logging.debug(f"Evaluating disease: {disease} with symptoms: {symptoms}")
-        if all(symptom in selected_symptoms for symptom in symptoms):
-            diagnosis_results.add(disease)
+        matching_symptoms = [symptom for symptom in symptoms if symptom in selected_symptoms]
+        match_percentage = len(matching_symptoms) / len(symptoms) * 100
+        # Calculate the total weight for the matching symptoms
+        total_weight = sum(symptom_weights.get(symptom, 0) for symptom in matching_symptoms)
+        diagnosis_results[disease] = (match_percentage, total_weight)
     
-    logging.debug(f"Diagnosis results: {diagnosis_results}")
-    return list(diagnosis_results)
+    # Sort the results by match percentage and total weight
+    sorted_results = sorted(diagnosis_results.items(), key=lambda x: (x[1][0], x[1][1]), reverse=True)
+    
+    # Check if all match percentages are below 80%
+    if all(result[1][0] < 80 for result in sorted_results):
+        # If so, return the top 2 results
+        top_two_results = sorted_results[:2]
+        logging.debug(f"Top two diagnosis results: {top_two_results}")
+        return top_two_results
+    else:
+        # Otherwise, return all results with match percentage >= 80%
+        high_match_results = [result for result in sorted_results if result[1][0] >= 80]
+        logging.debug(f"Diagnosis results with match percentage >= 80%: {high_match_results}")
+        return high_match_results
