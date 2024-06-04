@@ -3,8 +3,13 @@ from operator import itemgetter
 
 logging.basicConfig(level=logging.DEBUG)
 
-def forward_chaining(selected_symptoms):
+def forward_chaining(selected_symptoms, bagian_tanaman, kondisi_iklim, intensitas_serangan, hama_terlihat, tanda_penyakit):
     logging.debug(f"Selected symptoms: {selected_symptoms}")
+    logging.debug(f"Bagian tanaman: {bagian_tanaman}")
+    logging.debug(f"Kondisi iklim: {kondisi_iklim}")
+    logging.debug(f"Intensitas serangan: {intensitas_serangan}")
+    logging.debug(f"Hama terlihat: {hama_terlihat}")
+    logging.debug(f"Tanda penyakit: {tanda_penyakit}")
     
     # Define the symptoms and diseases
     diseases = {
@@ -113,13 +118,28 @@ def forward_chaining(selected_symptoms):
         "Daun padi mengering dan mati dari ujung": 3,
     }
 
+    bagian_tanaman_weight = {"Daun": 2, "Batang": 2, "Bulir Padi": 2}  # Ubah bobot sesuai kebutuhan
+    kondisi_iklim_weight = {"Panas dan Lebat": 3, "Hangat dan Basah": 2, "Dingin dan Kering": 1}  # Ubah bobot sesuai kebutuhan
+    intensitas_serangan_weight = {"Rendah": 1, "Sedang": 2, "Tinggi": 3}  # Ubah bobot sesuai kebutuhan
+    hama_terlihat_weight = 1  # Ubah bobot sesuai kebutuhan
+    tanda_penyakit_weight = 1  # Ubah bobot sesuai kebutuhan
+
     diagnosis_results = {}
     for disease, symptoms in diseases.items():
         logging.debug(f"Evaluating disease: {disease} with symptoms: {symptoms}")
         matching_symptoms = [symptom for symptom in symptoms if symptom in selected_symptoms]
         match_percentage = len(matching_symptoms) / len(symptoms) * 100
+
         # Calculate the total weight for the matching symptoms
         total_weight = sum(symptom_weights.get(symptom, 0) for symptom in matching_symptoms)
+
+        # Consider plant part, climate condition, attack intensity, visible pests, and signs of disease
+        total_weight += bagian_tanaman_weight.get(bagian_tanaman, 0)
+        total_weight += kondisi_iklim_weight.get(kondisi_iklim, 0)
+        total_weight += intensitas_serangan_weight.get(intensitas_serangan, 0)
+        total_weight += hama_terlihat_weight if hama_terlihat == "Yes" else 0
+        total_weight += tanda_penyakit_weight if tanda_penyakit == "Yes" else 0
+
         diagnosis_results[disease] = (match_percentage, total_weight)
     
     # Sort the results by match percentage and total weight
