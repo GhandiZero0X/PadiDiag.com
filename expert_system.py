@@ -6,7 +6,7 @@ logging.basicConfig(level=logging.DEBUG)
 def forward_chaining(selected_symptoms, bagian_tanaman, kondisi_iklim, hama_terlihat, tanda_penyakit):
     logging.debug(f"Selected symptoms: {selected_symptoms}, Bagian Tanaman: {bagian_tanaman}, Kondisi Iklim: {kondisi_iklim}, hama terlihat : {hama_terlihat}, Tanda Penyakit: {tanda_penyakit}")
     
-    # Define the diseases and their related plant parts
+    # fakta fakta yang terdaftar
     diseases = {
         "Hama Walang Sangit": {"gejala": ["Bulir padi mengering dan berubah warna menjadi putih", 
                                             "Produksi biji padi berkurang", 
@@ -100,7 +100,7 @@ def forward_chaining(selected_symptoms, bagian_tanaman, kondisi_iklim, hama_terl
                                 "tanda_penyakit": "Ada"},
     }
 
-    # Define the weights for each symptom
+    #bobot dari gejala hama dan penyakit
     symptom_weights = {
         #Hama Walang sangit dan Ganjur
         "Bulir padi mengering dan berubah warna menjadi putih": (
