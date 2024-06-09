@@ -80,7 +80,7 @@ def diagnose():
     hama_terlihat = request.form['hama_terlihat']
     tanda_penyakit = request.form['tanda_penyakit']
 
-    diagnosis_results = forward_chaining(selected_symptoms, bagian_tanaman, kondisi_iklim)  # Kirim gejala sebagai string ke fungsi forward_chaining
+    diagnosis_results = forward_chaining(selected_symptoms, bagian_tanaman, kondisi_iklim, hama_terlihat, tanda_penyakit)  # Kirim gejala sebagai string ke fungsi forward_chaining
     return render_template('result.html', nama=nama, kabupaten=kabupaten, hektar=hektar, gejala=selected_symptoms,
                            bagian_tanaman=bagian_tanaman, kondisi_iklim=kondisi_iklim, hama_terlihat=hama_terlihat,
                            tanda_penyakit=tanda_penyakit, results=diagnosis_results)
